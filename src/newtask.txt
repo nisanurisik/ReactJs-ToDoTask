@@ -1,0 +1,36 @@
+import { useState } from "react";
+
+import "./NewTask.css";
+function NewTask({ onCreate }) {
+  const [taskDesc, setTaskDesc] = useState("");
+
+  const handleTaskChange = (event) => {
+    setTaskDesc(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onCreate(taskDesc);
+    setTaskDesc("");
+    //setTaskDesc(event.target.value);
+  };
+
+  return (
+    <>
+      <form className="Form-group">
+        <input
+          value={taskDesc}
+          onChange={handleTaskChange}
+          type="text"
+          className="Form"
+          placeholder="Add a new task"
+        ></input>
+        <button type="submit" className="Btn-submit" onClick={handleSubmit}>
+          Submit
+        </button>
+      </form>
+      <hr></hr>
+    </>
+  );
+}
+export default NewTask;

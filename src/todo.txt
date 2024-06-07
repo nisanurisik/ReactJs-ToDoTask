@@ -1,0 +1,23 @@
+import "./ToDo.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
+
+function ToDo({ task }) {
+  return (
+    <div>
+      <h2 className="Form-header">Task to do</h2>
+      <label htmlFor="task1" className="Form-todo-label">
+        <p>{task.taskDesc}</p>
+        <div className="Form-icon">
+          <div className="Form-icon-check">
+            <FontAwesomeIcon icon={faCheck} />
+          </div>
+          <div className="Form-icon-trash">
+            <FontAwesomeIcon icon={faTrash} />
+          </div>
+        </div>
+      </label>
+    </div>
+  );
+}
+export default ToDo;

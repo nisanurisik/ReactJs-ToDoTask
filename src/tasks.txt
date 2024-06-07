@@ -1,0 +1,17 @@
+import ToDo from "./ToDo";
+import Done from "./Done";
+import "./Tasks.css";
+
+function Tasks({ tasks }) {
+  return (
+    <div>
+      <section id="Form-tasks">
+        {tasks.map((task, index) => {
+          return <ToDo key={index} task={task} />;
+        })}
+        <Done />
+      </section>
+    </div>
+  );
+}
+export default Tasks;

@@ -1,0 +1,32 @@
+import React from "react";
+import "./App.css";
+import Header from "./component/Header";
+import { useState } from "react";
+
+import NewTask from "./component/NewTask";
+import Tasks from "./component/Tasks";
+function App() {
+  const [tasks, setTasks] = useState([]);
+  const createTask = (taskDesc) => {
+    const createdTasks = [
+      ...tasks,
+      {
+        id: Math.round(Math.random() * 999999),
+        taskDesc,
+      },
+    ];
+    setTasks(createdTasks);
+  };
+
+  return (
+    <>
+      <Header />
+      <main>
+        <NewTask onCreate={createTask} />
+        <Tasks tasks={tasks} />
+      </main>
+    </>
+  );
+}
+
+export default App;
